@@ -2,18 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-value',
-  templateUrl: './value.component.html', // html template
-  styleUrls: ['./value.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class ValueComponent implements OnInit { // implements OnInit interface
+export class HomeComponent implements OnInit {
+  registerMode = false;
   values: any;
 
-  constructor(private http: HttpClient) { } // constructor goes first. Inject the service you want to use
+  constructor(private http: HttpClient) { }
 
-
-  ngOnInit() { // when our component initializes, we call method getValues and populate with response back from the server
+  ngOnInit() {
     this.getValues();
+  }
+
+  registerToggle() {
+    this.registerMode = !this.registerMode;
   }
 
   getValues() {
