@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
   registerMode = false;
   values: any;
 
+  // inject the HTTP CLIENT
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
   }
 
   registerToggle() {
-    this.registerMode = !this.registerMode;
+    this.registerMode = true;
   }
 
   getValues() {
@@ -28,6 +29,10 @@ export class HomeComponent implements OnInit {
       console.log(error);
     }); // give roots from API endpoint
     // subscribe to the observable above
+  }
+
+  cancelRegisterMode(registerMode: boolean) {
+    this.registerMode = registerMode;
   }
 
 }
