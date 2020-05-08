@@ -22,4 +22,13 @@ login(model: any) {
   );
 }
 
+
+// very simple register method
+register(model: any) {
+  // model is an object to store the username and pw
+  return this.http.post(this.baseUrl + 'register', model);
+
+}
+
+
 }
