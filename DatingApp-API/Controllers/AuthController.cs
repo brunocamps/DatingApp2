@@ -28,11 +28,6 @@ namespace DatingApp_API.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
-            // validate request
-
-            // if(!ModelState.IsValid)
-            //     return BadRequest(ModelState);
-
             userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
             if (await _repo.UserExists(userForRegisterDto.Username))
@@ -51,9 +46,8 @@ namespace DatingApp_API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
+            //throw new Exception("Computer says no!");
 
-            //throw new Exception("Computer says no!"); // unreachable code below
-            //check if the user actually exists
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
             if (userFromRepo == null)
@@ -90,13 +84,6 @@ namespace DatingApp_API.Controllers
                 token = tokenHandler.WriteToken(token)
 
             });
-
-
-
-
-
-
         }
-
     }
 }
