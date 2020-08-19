@@ -11,7 +11,7 @@ namespace DatingApp_API.Controllers
     [Authorize] //anything inside this class must be authorized
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ValuesController : ControllerBase //attribute-based routing 
     {
         private readonly DataContext _context; //private readonly field to use in our class
 

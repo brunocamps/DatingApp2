@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp_API.Data
 {
-    public class DataContext : DbContext
+    public class DataContext : DbContext //make this available as public
     {
         //DataContext constructor
         public DataContext(DbContextOptions<DataContext> options) : base

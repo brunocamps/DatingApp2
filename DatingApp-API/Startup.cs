@@ -57,13 +57,16 @@ namespace DatingApp_API
         }
         //Configure method: configure HTTP request pipeline.
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        //Dependency injection container (public void Configure)
+        //To add a service, declare it below: 
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             //everything here is middleware
             //Middleware: software used to interact with API request as its going through its journey in the pipeline
 
             //check to see if running on development mode
-            if (env.IsDevelopment())
+            if (env.IsDevelopment()) //development vs. production environment
             {
                 app.UseDeveloperExceptionPage(); //developer friendly page
             }
@@ -83,7 +86,7 @@ namespace DatingApp_API
                 }); //sends a 500 internal server error globally.
             }
 
-            //app.UseHttpsRedirection();
+            //app.UseHttpsRedirection(); -> comment this out. HTTPS will come at a second moment
 
             app.UseRouting(); //tell the app to use routing
 
@@ -95,7 +98,7 @@ namespace DatingApp_API
 
             app.UseEndpoints(endpoints => //piece of middleware to use our endpoints
             {
-                endpoints.MapControllers(); //map controllers endpoints
+                endpoints.MapControllers(); //map controllers endpoints into our application 
             });
         }
     }
